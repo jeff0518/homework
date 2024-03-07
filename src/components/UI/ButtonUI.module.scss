@@ -2,18 +2,46 @@
 @import "/src/styles/mixin";
 
 .btn__pill {
-  width: 50%;
+  width: 80%;
   height: 2rem;
-  margin: 0 auto;
   @include center-both;
   border: none;
-  border-radius: 10px;
-  background-color: color.$gray-2;
+  border-radius: 30px;
+  background-color: color.$gray-7;
+  @include text-styles(1.5rem, 500, color.$gray-2);
   cursor: pointer;
 
   &:hover,
   &:active {
     background-color: color.$brand-color;
     color: color.$gray-9;
+  }
+}
+
+.btn__user {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  @include text-styles(1.5rem, 500, color.$gray-2);
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    transform: scale(1.1);
+    color: color.$primary-color;
+  }
+}
+
+.btn__text {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid color.$gray-7;
+  @include text-styles(1.25rem, 500, color.$gray-7);
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    transform: scale(1.1);
+    color: color.$brand-color;
   }
 }

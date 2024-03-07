@@ -1,0 +1,21 @@
+@use "/src/styles/colors" as color;
+@import "/src/styles/mixin";
+
+.header_container {
+  width: 100vw;
+  height: 4rem;
+  padding: 0.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: color.$brand-color;
+  @include text-styles(1.5rem, 500, color.$gray-1);
+
+  .title {
+    @include center-both;
+    gap: 1rem;
+  }
+
+  .user {
+    @include center-both;
+  }
+}

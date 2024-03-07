@@ -1,0 +1,36 @@
+@use "/src/styles/colors" as color;
+@import "/src/styles/mixin";
+
+.searchCase_container {
+  width: 90%;
+  margin: 1rem auto;
+
+  .optionContainer {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    .caseNumber {
+      width: 40%;
+    }
+
+    .date {
+      width: 60%;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+
+    &_box {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+}
