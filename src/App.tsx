@@ -1,11 +1,10 @@
-import Footer from "./components/layout/Footer";
+import LoginPage from "./pages/LoginPage";
 import "../src/styles/globals.scss";
 
 function App() {
   return (
     <>
-      <div>測試</div>
-      <Footer />
+      <LoginPage />
     </>
   );
 }

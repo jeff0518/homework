@@ -4,8 +4,8 @@ import style from "./ButtonUI.module.scss";
 interface ButtonProps {
   children: ReactNode;
   btnStyle: string;
-  type: "submit" | "reset" | "button" | undefined;
-  onClick: () => void;
+  type?: "submit" | "reset" | "button" | undefined;
+  onClick?: () => void;
 }
 function ButtonUI({ children, btnStyle, type, onClick }: ButtonProps) {
   return (
