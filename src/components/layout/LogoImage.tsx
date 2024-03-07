@@ -1,5 +1,4 @@
 import logo from "../../../public/logo.svg";
-
 import style from "./LogoImage.module.scss";
 
 interface LogoProps {

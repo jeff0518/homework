@@ -15,7 +15,6 @@ function SearchCase() {
         </div>
       </div>
       <div className={style.actions}>
-        {/* <div className={style.actions_box}></div> */}
         <div className={style.actions_box}>
           <ButtonUI btnStyle="btn__text">手動建立</ButtonUI>
           <ButtonUI btnStyle="btn__pill">
