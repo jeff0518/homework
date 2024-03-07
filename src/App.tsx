@@ -1,10 +1,11 @@
-import logo from "../public/logo.svg";
+import Footer from "./components/layout/Footer";
 import "../src/styles/globals.scss";
 
 function App() {
   return (
     <>
-      <img src={logo} className="logo" alt="Vite logo" />
+      <div>測試</div>
+      <Footer />
     </>
   );
 }

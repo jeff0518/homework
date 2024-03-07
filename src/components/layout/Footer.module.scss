@@ -1,0 +1,16 @@
+@use "/src/styles/colors" as color;
+@import "/src/styles/mixin";
+
+.Footer_container {
+  width: 100%;
+  height: 5rem;
+  padding: 0.25rem;
+  @include center-both;
+  position: fixed;
+  bottom: 0;
+  background-color: color.$brand-color;
+
+  img {
+    width: 30%;
+  }
+}
