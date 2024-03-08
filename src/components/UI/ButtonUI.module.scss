@@ -45,3 +45,16 @@
     color: color.$brand-color;
   }
 }
+
+.btn__card {
+  background-color: transparent;
+  border: none;
+  @include text-styles(1.25rem, 500, color.$gray-7);
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    transform: scale(1.1);
+    color: color.$brand-color;
+  }
+}

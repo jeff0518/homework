@@ -19,8 +19,12 @@
     width: 100%;
     height: 80%;
     margin: 1rem 0;
-    padding-left: 1.5rem;
+    padding: 1.5rem;
     border: 2px solid color.$gray-7;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1rem;
+    overflow-y: auto;
   }
 
   .patient_action {
