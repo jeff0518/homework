@@ -1,16 +1,23 @@
+import { useNavigate } from "react-router-dom";
+
 import LogoImage from "../layout/LogoImage";
 import Form from "../UI/Form";
 import InputUI from "../UI/InputUI";
 import ButtonUI from "../UI/ButtonUI";
-
 import style from "./Login.module.scss";
+
 function Login() {
+  const navigate = useNavigate();
+
+  const loginHandler = () => {
+    navigate("/main");
+  };
   return (
     <div className={style.Login_container}>
       <div className={style.left}></div>
       <div className={style.right}>
         <LogoImage logoStyle="circle_login" />
-        <Form formStyle="login" onSubmit={() => {}}>
+        <Form formStyle="login" onSubmit={loginHandler}>
           <InputUI
             label="帳號"
             id="account"

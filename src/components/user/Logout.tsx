@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { TbLogin } from "react-icons/tb";
 
 import Modal from "../UI/Modal";
@@ -8,9 +9,11 @@ import style from "./Logout.module.scss";
 
 function Logout() {
   const userProgressCtx = useContext(UserProgressContext);
+  const navigate = useNavigate();
 
   const closeLogoutHandler = () => userProgressCtx.hideLogout();
 
+  const toLoginPageHandler = () => navigate("/");
   return (
     <Modal
       modalStyle="right-top"
@@ -24,7 +27,7 @@ function Logout() {
           <div className={style.info}>使用者:Jeff</div>
           <div className={style.line}></div>
           <div className={style.action}>
-            <ButtonUI btnStyle="btn__logout">
+            <ButtonUI btnStyle="btn__logout" onClick={toLoginPageHandler}>
               <TbLogin size={28} />
               <span className={style.action_text}>登出</span>
             </ButtonUI>
