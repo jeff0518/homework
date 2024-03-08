@@ -5,12 +5,21 @@ interface InputProps {
   id: string;
   type: string;
   placeholder: string;
+  [key: string]: unknown;
 }
-function InputUI({ label, id, type, placeholder }: InputProps) {
+
+function InputUI({ label, id, type, placeholder, ...props }: InputProps) {
   return (
     <div className={style.input_container}>
       <label htmlFor={id}>{label}</label>
-      <input id={id} name={id} type={type} placeholder={placeholder} required />
+      <input
+        id={id}
+        name={id}
+        type={type}
+        placeholder={placeholder}
+        {...props}
+        required
+      />
     </div>
   );
 }

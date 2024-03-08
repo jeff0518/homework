@@ -1,9 +1,16 @@
-import InputUI from "../UI/InputUI";
-import ButtonUI from "../UI/ButtonUI";
+import { useContext } from "react";
 import { FaSearch } from "react-icons/fa";
 
+import InputUI from "../UI/InputUI";
+import ButtonUI from "../UI/ButtonUI";
+import UserProgressContext from "../../context/UserProgressContext";
 import style from "./SearchCase.module.scss";
+
 function SearchCase() {
+  const userProgressCtx = useContext(UserProgressContext);
+
+  const showPopupHandler = () => userProgressCtx.showPopup();
+
   return (
     <div className={style.searchCase_container}>
       <div className={style.optionContainer}>
@@ -16,7 +23,9 @@ function SearchCase() {
       </div>
       <div className={style.actions}>
         <div className={style.actions_box}>
-          <ButtonUI btnStyle="btn__text">手動建立</ButtonUI>
+          <ButtonUI btnStyle="btn__text" onClick={showPopupHandler}>
+            手動建立
+          </ButtonUI>
           <ButtonUI btnStyle="btn__pill">
             查詢
             <FaSearch size={20} />

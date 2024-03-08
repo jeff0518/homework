@@ -1,4 +1,4 @@
-import photo from "../../../../public/photoSystem.svg";
+import photo from "../../../assets/photoSystem.svg";
 import style from "./Table.module.scss";
 
 function TableRow() {
