@@ -8,19 +8,24 @@ const UserProgressContext = createContext({
   progress: "",
   showPopup: () => {},
   hidePopup: () => {},
+  showLogout: () => {},
+  hideLogout: () => {},
 });
 
 export function UserProgressContextProvider({ children }: ProviderProps) {
   const [userProgress, setUserProgress] = useState("");
 
-  console.log("context有執行");
   const showPopup = () => setUserProgress("Popup");
   const hidePopup = () => setUserProgress("");
+  const showLogout = () => setUserProgress("Logout");
+  const hideLogout = () => setUserProgress("");
 
   const userProgressCtx = {
     progress: userProgress,
     showPopup,
     hidePopup,
+    showLogout,
+    hideLogout,
   };
 
   return (

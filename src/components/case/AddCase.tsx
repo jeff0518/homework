@@ -10,7 +10,6 @@ import style from "./AddCase.module.scss";
 function AddCase() {
   const userProgressCtx = useContext(UserProgressContext);
 
-  // const showPopupHandler = () => userProgressCtx.showPopup();
   const closePopupHandler = () => userProgressCtx.hidePopup();
   return (
     <Modal

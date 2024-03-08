@@ -3,6 +3,7 @@ import { UserProgressContextProvider } from "./context/UserProgressContext";
 import MainPage from "./pages/MainPage";
 import AddCase from "./components/case/AddCase";
 // import PatentPage from "./pages/PatientPage";
+import Logout from "./components/user/Logout";
 import "../src/styles/globals.scss";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         {/* <LoginPage /> */}
         <MainPage />
         <AddCase />
+        <Logout />
         {/* <PatentPage /> */}
       </UserProgressContextProvider>
     </>

@@ -6,11 +6,6 @@
   border-radius: 6px;
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-  animation: fade-slide-up 0.3s ease-out forwards;
-
-  &::backdrop {
-    background-color: rgba(0, 0, 0, 0.55);
-  }
 }
 
 .center {
@@ -18,12 +13,40 @@
   max-width: 40rem;
   padding: 1rem;
   margin: auto;
+  animation: fade-slide-up 0.3s ease-out forwards;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.55);
+  }
+}
+
+.right-top {
+  width: 15rem;
+  top: 4rem;
+  left: calc(100vw - 15rem);
+  animation: fade-slide-down 0.3s ease-out forwards;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.55);
+  }
 }
 
 @keyframes fade-slide-up {
   from {
     opacity: 0;
     transform: translateY(4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-4rem);
   }
 
   to {
