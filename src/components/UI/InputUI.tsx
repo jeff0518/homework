@@ -6,9 +6,17 @@ interface InputProps {
   type: string;
   placeholder: string;
   [key: string]: unknown;
+  inputRef?: React.RefObject<HTMLInputElement>;
 }
 
-function InputUI({ label, id, type, placeholder, ...props }: InputProps) {
+function InputUI({
+  label,
+  id,
+  type,
+  placeholder,
+  inputRef,
+  ...props
+}: InputProps) {
   return (
     <div className={style.input_container}>
       <label htmlFor={id}>{label}</label>
@@ -17,6 +25,7 @@ function InputUI({ label, id, type, placeholder, ...props }: InputProps) {
         name={id}
         type={type}
         placeholder={placeholder}
+        ref={inputRef}
         {...props}
         required
       />

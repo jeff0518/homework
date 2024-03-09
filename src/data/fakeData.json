@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "account": "user1",
+      "password": "123456"
+    },
+    {
+      "account": "user2",
+      "password": "654321"
+    }
+  ],
+  "medicalRecords": [
+    {
+      "recordNumber": "123456",
+      "name": "John Doe",
+      "birthday": "1990-05-15",
+      "gender": "Male",
+      "checkupDate": "2022-03-01",
+      "checkupNumber": "C123",
+      "photos": [
+        "photo1.jpg",
+        "photo2.jpg"
+      ]
+    },
+    {
+      "recordNumber": "789012",
+      "name": "Jane Smith",
+      "birthday": "1985-11-28",
+      "gender": "Female",
+      "checkupDate": "2022-02-15",
+      "checkupNumber": "C456",
+      "photos": [
+        "photo3.jpg",
+        "photo4.jpg"
+      ]
+    },
+    {
+      "recordNumber": "345678",
+      "name": "Bob Johnson",
+      "birthday": "1978-08-10",
+      "gender": "Male",
+      "checkupDate": "2022-04-05",
+      "checkupNumber": "C789",
+      "photos": [
+        "photo5.jpg",
+        "photo6.jpg"
+      ]
+    },
+    {
+      "recordNumber": "901234",
+      "name": "Alice Lee",
+      "birthday": "1995-02-22",
+      "gender": "Female",
+      "checkupDate": "2022-01-20",
+      "checkupNumber": "C012",
+      "photos": [
+        "photo7.jpg",
+        "photo8.jpg"
+      ]
+    },
+    {
+      "recordNumber": "567890",
+      "name": "Tom Wang",
+      "birthday": "1982-07-03",
+      "gender": "Male",
+      "checkupDate": "2022-03-15",
+      "checkupNumber": "C345",
+      "photos": [
+        "photo9.jpg",
+        "photo10.jpg"
+      ]
+    }
+  ]
+}
