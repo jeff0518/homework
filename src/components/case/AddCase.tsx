@@ -21,7 +21,7 @@ function AddCase() {
     >
       <div className={style.addCase_container}>
         <div className={style.addCase_del}>
-          <ButtonUI btnStyle="btn__card">
+          <ButtonUI btnStyle="btn__card" onClick={closePopupHandler}>
             <TiDeleteOutline size={30} />
           </ButtonUI>
         </div>
