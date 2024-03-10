@@ -3,7 +3,7 @@
 
 .tableContainer {
   width: 90%;
-  max-height: 50vh;
+  max-height: 45vh;
   margin: 0 auto;
   border: 1px solid color.$gray-10;
   overflow-y: auto;
@@ -14,10 +14,35 @@
     .sticky {
       position: sticky;
       top: 2px;
+      z-index: 10;
 
       .table_header {
         width: 100%;
         background-color: color.$gray-7;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .tableContainer {
+    width: 90%;
+    max-height: 50vh;
+    margin: 0 auto;
+    border: 1px solid color.$gray-10;
+    overflow-y: auto;
+
+    .displayCase_container {
+      width: 100%;
+
+      .sticky {
+        position: sticky;
+        top: 2px;
+
+        .table_header {
+          width: 100%;
+          background-color: color.$gray-7;
+        }
       }
     }
   }

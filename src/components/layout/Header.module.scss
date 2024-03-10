@@ -12,10 +12,32 @@
 
   .title {
     @include center-both;
-    gap: 1rem;
+    &_img {
+      display: none;
+    }
   }
 
   .user {
     @include center-both;
+
+    &_title {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .header_container {
+    .title {
+      gap: 1rem;
+      &_img {
+        display: flex;
+      }
+    }
+    .user {
+      &_title {
+        display: inline;
+      }
+    }
   }
 }

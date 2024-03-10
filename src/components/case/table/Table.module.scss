@@ -10,12 +10,24 @@
   }
 }
 
+td:first-child,
+th:first-child {
+  position: sticky;
+  left: 0;
+  background-color: color.$gray-7;
+}
+
 .table_cell {
   @include text-styles(1.25rem, 500, color.$gray-10);
   text-align: center;
+  padding: 0 0.5rem;
 
   &_photo {
     width: 2.5rem;
+  }
+
+  &_text {
+    min-width: 8rem;
   }
 }
 

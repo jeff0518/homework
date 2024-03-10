@@ -8,16 +8,19 @@
   .optionContainer {
     margin-bottom: 2rem;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     gap: 1rem;
 
     .caseNumber {
-      width: 40%;
+      width: 60%;
+      min-width: 15rem;
     }
 
     .date {
       width: 60%;
+      min-width: 15rem;
     }
   }
 
@@ -26,11 +29,30 @@
     justify-content: flex-end;
 
     &_box {
-      width: 50%;
+      width: 100%;
       display: flex;
       justify-content: flex-end;
       align-items: center;
       gap: 0.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .searchCase_container {
+    .optionContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .caseNumber {
+        width: 40%;
+      }
+    }
+
+    .actions {
+      &_box {
+        width: 70%;
+      }
     }
   }
 }

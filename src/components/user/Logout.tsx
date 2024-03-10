@@ -13,7 +13,10 @@ function Logout() {
 
   const closeLogoutHandler = () => userProgressCtx.hideLogout();
 
-  const toLoginPageHandler = () => navigate("/");
+  const toLoginPageHandler = () => {
+    localStorage.clear();
+    navigate("/");
+  };
   return (
     <Modal
       modalStyle="right-top"

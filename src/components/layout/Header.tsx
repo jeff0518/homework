@@ -13,13 +13,15 @@ function Header() {
   return (
     <div className={style.header_container}>
       <div className={style.title}>
-        <LogoImage logoStyle="circle_header" />
-        <p>傷口照護紀錄</p>
+        <div className={style.title_img}>
+          <LogoImage logoStyle="circle_header" />
+        </div>
+        <p className={style.text}>傷口照護紀錄</p>
       </div>
       <div className={style.user}>
         <ButtonUI btnStyle="btn__user" onClick={showLogoutHandler}>
           <FaUser size={20} />
-          User
+          <span className={style.user_title}>User</span>
         </ButtonUI>
       </div>
     </div>

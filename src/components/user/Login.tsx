@@ -5,6 +5,7 @@ import LogoImage from "../layout/LogoImage";
 import Form from "../UI/Form";
 import InputUI from "../UI/InputUI";
 import ButtonUI from "../UI/ButtonUI";
+import { Toast } from "../utils/getSweetalert";
 import style from "./Login.module.scss";
 
 import { getLoginData } from "../../services/authAPI";
@@ -18,18 +19,29 @@ function Login() {
     event.preventDefault();
 
     if (!accountRef.current || !passwordRef.current) {
-      console.log("未補抓到accountRef或passwordRef");
+      // console.log("未補抓到accountRef或passwordRef");
+      Toast.fire({
+        icon: "warning",
+        title: "沒有輸入完整資訊",
+      });
     }
-    const enterAccount = accountRef.current.value;
-    const enterPassword = passwordRef.current.value;
+    const enterAccount = accountRef.current.value.trim();
+    const enterPassword = passwordRef.current.value.trim();
 
     const result = getLoginData({ enterAccount, enterPassword });
 
     if (result) {
-      console.log("登入成功");
+      Toast.fire({
+        icon: "success",
+        title: "登入成功",
+      });
+      localStorage.setItem("account", enterAccount);
       navigate("/main");
     } else {
-      console.log("登入失敗");
+      Toast.fire({
+        icon: "error",
+        title: "登入失敗",
+      });
     }
   };
   return (

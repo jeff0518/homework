@@ -19,10 +19,10 @@ function TableRow() {
           onClick={toPatientHandler}
         />
       </td>
-      <td className={style.table_cell}>2</td>
-      <td className={style.table_cell}>3</td>
-      <td className={style.table_cell}>4</td>
-      <td className={style.table_cell}>5</td>
+      <td className={style.table_cell}>12345678</td>
+      <td className={style.table_cell}>jeff wang</td>
+      <td className={style.table_cell}>2024/03/11</td>
+      <td className={style.table_cell}>240311001</td>
     </tr>
   );
 }

@@ -10,7 +10,7 @@ function DisplayCase() {
           <tr className={style.table_header}>
             <TableHeaderItem name="" additionalStyle="table_cell_photo" />
             <TableHeaderItem name="病例號" />
-            <TableHeaderItem name="姓名" />
+            <TableHeaderItem additionalStyle="table_cell_text" name="姓名" />
             <TableHeaderItem name="檢查日期" />
             <TableHeaderItem name="檢查單號" />
           </tr>
