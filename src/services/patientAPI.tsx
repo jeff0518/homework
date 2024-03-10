@@ -31,7 +31,7 @@ export function postMedicalRecord({
     photos: [],
   };
 
-  const medicalRecords = [...fakeData.medicalRecords, newRecords];
+  // const medicalRecords = [...fakeData.medicalRecords, newRecords];
 
-  return medicalRecords;
+  return newRecords;
 }

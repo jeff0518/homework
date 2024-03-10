@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { FaRegImage, FaCamera } from "react-icons/fa6";
 
@@ -5,15 +6,23 @@ import RecordCard from "./RecordCard";
 import ButtonUI from "../UI/ButtonUI";
 import style from "./Patient.module.scss";
 
+import { RecordFakeDataContext } from "../../context/recordFakeData";
+
 function Patient() {
+  const recordFakeCtx = useContext(RecordFakeDataContext);
   const { recordNumber } = useParams();
 
+  const patient = recordFakeCtx?.medicalRecords.find((item) => {
+    if (item.recordNumber === recordNumber) {
+      return item;
+    }
+  });
   return (
     <div className={style.patient_container}>
       <div className={style.patient_info}>
-        <p>病例號： 20240307001</p>
-        <p>姓名：Jeff</p>
-        <p>性別：男</p>
+        <p>病例號： {patient?.recordNumber}</p>
+        <p>姓名：{patient?.name}</p>
+        <p>性別: {patient?.gender}</p>
       </div>
       <ul className={style.patient_image}>
         <RecordCard />

@@ -1,22 +1,20 @@
+import { useContext, useEffect } from "react";
+
+import { MedicalRecordProps } from "../../context/recordFakeData";
+import { RecordFakeDataContext } from "../../context/recordFakeData";
 import TableHeaderItem from "./table/TableHeaderItem";
 import TableRow from "./table/TableRow";
 import style from "./DisplayCase.module.scss";
 
-export interface MedicalRecordProps {
-  recordNumber: string;
-  name: string;
-  gender: string;
-  birthday: string;
-  checkupDate: string;
-  checkupNumber: string;
-  photos: string[];
+interface DisplayCaseProps {
+  updated: boolean;
 }
 
-interface DisplayProps {
-  medicalRecords: MedicalRecordProps[];
-}
+function DisplayCase({ updated }: DisplayCaseProps) {
+  const recordFakeCtx = useContext(RecordFakeDataContext);
 
-function DisplayCase({ medicalRecords }: DisplayProps) {
+  useEffect(() => {}, [updated]);
+
   return (
     <div className={style.tableContainer}>
       <table className={style.displayCase_container}>
@@ -30,7 +28,7 @@ function DisplayCase({ medicalRecords }: DisplayProps) {
           </tr>
         </thead>
         <tbody className={style.table_body}>
-          {medicalRecords.map((item: MedicalRecordProps) => {
+          {recordFakeCtx?.medicalRecords.map((item: MedicalRecordProps) => {
             return (
               <TableRow
                 key={item.recordNumber}

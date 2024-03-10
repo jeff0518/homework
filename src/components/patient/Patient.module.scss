@@ -10,14 +10,15 @@
     width: 100%;
     padding-left: 1.5rem;
     display: flex;
-    align-items: center;
-    gap: 3rem;
+    flex-direction: column;
+    align-items: end;
+    gap: 0.5rem;
     @include text-styles(1.5rem, 500, color.$gray-7);
   }
 
   .patient_image {
     width: 100%;
-    height: 80%;
+    height: 60%;
     margin: 1rem 0;
     padding: 1.5rem;
     border: 2px solid color.$gray-7;
@@ -34,6 +35,21 @@
 
     &_text {
       margin-right: 0.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 643px) {
+  .patient_container {
+    .patient_info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .patient_image {
+      height: 80%;
     }
   }
 }

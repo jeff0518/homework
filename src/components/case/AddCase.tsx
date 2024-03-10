@@ -8,14 +8,21 @@ import UserProgressContext from "../../context/UserProgressContext";
 import style from "./AddCase.module.scss";
 
 import { postMedicalRecord } from "../../services/patientAPI";
+import { RecordFakeDataContext } from "../../context/recordFakeData";
 
-interface RecordsProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  setMedicalRecords: (data: any) => void;
+interface AddCaseProps {
+  updatedHandler: () => void;
 }
 
-function AddCase({ setMedicalRecords }: RecordsProps) {
+function AddCase({ updatedHandler }: AddCaseProps) {
   const userProgressCtx = useContext(UserProgressContext);
+  const recordFakeCtx = useContext(RecordFakeDataContext);
+
+  const fakeData = recordFakeCtx?.medicalRecords;
+  if (!fakeData) return;
+  const fakeDataLength = fakeData.length - 1;
+  const maxNumber = Number(fakeData[fakeDataLength].recordNumber);
+  const recordNumber = String(maxNumber + 1).padStart(5, "0");
 
   const addMedicalRecord = (event: FormEvent) => {
     event.preventDefault();
@@ -26,7 +33,6 @@ function AddCase({ setMedicalRecords }: RecordsProps) {
     const name = fd.get("name")?.toString();
     const gender = fd.get("gender")?.toString();
     const birthday = fd.get("birthday")?.toString();
-    const recordNumber = "111111";
 
     if (!name || !gender || !birthday) {
       return;
@@ -38,7 +44,10 @@ function AddCase({ setMedicalRecords }: RecordsProps) {
         birthday,
       });
 
-      setMedicalRecords(response);
+      updatedHandler();
+      recordFakeCtx?.addPatient(response);
+      formElement.reset();
+      userProgressCtx.hidePopup();
     }
   };
 
@@ -64,7 +73,7 @@ function AddCase({ setMedicalRecords }: RecordsProps) {
               label="病歷號"
               id="caseNumber"
               type="text"
-              placeholder="之後會做直接生出病歷號"
+              placeholder={recordNumber}
               disabled
             />
             <InputUI
