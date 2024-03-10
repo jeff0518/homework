@@ -11,63 +11,27 @@
   ],
   "medicalRecords": [
     {
-      "recordNumber": "123456",
-      "name": "John Doe",
+      "recordNumber": "00001",
+      "name": "李小明",
+      "gender": "男",
       "birthday": "1990-05-15",
-      "gender": "Male",
-      "checkupDate": "2022-03-01",
-      "checkupNumber": "C123",
+      "checkupDate": "2024/03/10",
+      "checkupNumber": "2024031001",
       "photos": [
         "photo1.jpg",
         "photo2.jpg"
       ]
     },
     {
-      "recordNumber": "789012",
-      "name": "Jane Smith",
-      "birthday": "1985-11-28",
-      "gender": "Female",
-      "checkupDate": "2022-02-15",
-      "checkupNumber": "C456",
+      "recordNumber": "00002",
+      "name": "王小美",
+      "gender": "女",
+      "birthday": "1990-05-15",
+      "checkupDate": "2024/03/11",
+      "checkupNumber": "2024031101",
       "photos": [
-        "photo3.jpg",
-        "photo4.jpg"
-      ]
-    },
-    {
-      "recordNumber": "345678",
-      "name": "Bob Johnson",
-      "birthday": "1978-08-10",
-      "gender": "Male",
-      "checkupDate": "2022-04-05",
-      "checkupNumber": "C789",
-      "photos": [
-        "photo5.jpg",
-        "photo6.jpg"
-      ]
-    },
-    {
-      "recordNumber": "901234",
-      "name": "Alice Lee",
-      "birthday": "1995-02-22",
-      "gender": "Female",
-      "checkupDate": "2022-01-20",
-      "checkupNumber": "C012",
-      "photos": [
-        "photo7.jpg",
-        "photo8.jpg"
-      ]
-    },
-    {
-      "recordNumber": "567890",
-      "name": "Tom Wang",
-      "birthday": "1982-07-03",
-      "gender": "Male",
-      "checkupDate": "2022-03-15",
-      "checkupNumber": "C345",
-      "photos": [
-        "photo9.jpg",
-        "photo10.jpg"
+        "photo1.jpg",
+        "photo2.jpg"
       ]
     }
   ]

@@ -2,7 +2,21 @@ import TableHeaderItem from "./table/TableHeaderItem";
 import TableRow from "./table/TableRow";
 import style from "./DisplayCase.module.scss";
 
-function DisplayCase() {
+export interface MedicalRecordProps {
+  recordNumber: string;
+  name: string;
+  gender: string;
+  birthday: string;
+  checkupDate: string;
+  checkupNumber: string;
+  photos: string[];
+}
+
+interface DisplayProps {
+  medicalRecords: MedicalRecordProps[];
+}
+
+function DisplayCase({ medicalRecords }: DisplayProps) {
   return (
     <div className={style.tableContainer}>
       <table className={style.displayCase_container}>
@@ -16,16 +30,17 @@ function DisplayCase() {
           </tr>
         </thead>
         <tbody className={style.table_body}>
-          <TableRow />
-          <TableRow />
-          <TableRow />
-          <TableRow />
-          <TableRow />
-          <TableRow />
-          <TableRow />
-          <TableRow />
-          <TableRow />
-          <TableRow />
+          {medicalRecords.map((item: MedicalRecordProps) => {
+            return (
+              <TableRow
+                key={item.recordNumber}
+                recordNumber={item.recordNumber}
+                name={item.name}
+                checkupDate={item.checkupDate}
+                checkupNumber={item.recordNumber}
+              />
+            );
+          })}
         </tbody>
       </table>
     </div>

@@ -11,7 +11,7 @@ function Root() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/main" element={<MainPage />} />
-        <Route path="/patient" element={<PatientPage />} />
+        <Route path="/patient/:recordNumber" element={<PatientPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>

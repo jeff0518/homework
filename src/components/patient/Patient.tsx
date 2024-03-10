@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { FaRegImage, FaCamera } from "react-icons/fa6";
 
 import RecordCard from "./RecordCard";
@@ -5,6 +6,8 @@ import ButtonUI from "../UI/ButtonUI";
 import style from "./Patient.module.scss";
 
 function Patient() {
+  const { recordNumber } = useParams();
+
   return (
     <div className={style.patient_container}>
       <div className={style.patient_info}>

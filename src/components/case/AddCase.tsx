@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { FormEvent, useContext } from "react";
 import { TiDeleteOutline } from "react-icons/ti";
 
 import Modal from "../UI/Modal";
@@ -7,10 +7,43 @@ import ButtonUI from "../UI/ButtonUI";
 import UserProgressContext from "../../context/UserProgressContext";
 import style from "./AddCase.module.scss";
 
-function AddCase() {
+import { postMedicalRecord } from "../../services/patientAPI";
+
+interface RecordsProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  setMedicalRecords: (data: any) => void;
+}
+
+function AddCase({ setMedicalRecords }: RecordsProps) {
   const userProgressCtx = useContext(UserProgressContext);
 
+  const addMedicalRecord = (event: FormEvent) => {
+    event.preventDefault();
+
+    const formElement = event.target as HTMLFormElement;
+    const fd = new FormData(formElement);
+
+    const name = fd.get("name")?.toString();
+    const gender = fd.get("gender")?.toString();
+    const birthday = fd.get("birthday")?.toString();
+    const recordNumber = "111111";
+
+    if (!name || !gender || !birthday) {
+      return;
+    } else {
+      const response = postMedicalRecord({
+        recordNumber,
+        name,
+        gender,
+        birthday,
+      });
+
+      setMedicalRecords(response);
+    }
+  };
+
   const closePopupHandler = () => userProgressCtx.hidePopup();
+
   return (
     <Modal
       modalStyle="center"
@@ -25,7 +58,7 @@ function AddCase() {
             <TiDeleteOutline size={30} />
           </ButtonUI>
         </div>
-        <form className={style.addCase_form} onSubmit={() => {}}>
+        <form className={style.addCase_form} onSubmit={addMedicalRecord}>
           <div className={style.form_input}>
             <InputUI
               label="病歷號"
@@ -49,7 +82,7 @@ function AddCase() {
             <InputUI
               label="生日"
               id="birthday"
-              type="text"
+              type="date"
               placeholder="請輸入病患生日"
             />
           </div>
