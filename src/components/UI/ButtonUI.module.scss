@@ -18,6 +18,20 @@
   }
 }
 
+.btn__camera {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  @include text-styles(1.5rem, 500, color.$gray-4);
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    transform: scale(1.3);
+    color: color.$error-color;
+  }
+}
+
 .btn__user {
   width: 100%;
   background-color: transparent;
