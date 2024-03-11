@@ -18,8 +18,14 @@
       "checkupDate": "2024/03/10",
       "checkupNumber": "2024031001",
       "photos": [
-        "photo1.jpg",
-        "photo2.jpg"
+        {
+          "id": "001",
+          "image": "/image/cat1.jpg"
+        },
+        {
+          "id": "002",
+          "image": "/image/cat2.jpg"
+        }
       ]
     },
     {
@@ -30,8 +36,14 @@
       "checkupDate": "2024/03/11",
       "checkupNumber": "2024031101",
       "photos": [
-        "photo1.jpg",
-        "photo2.jpg"
+        {
+          "id": "001",
+          "image": "/image/dog1.jpg"
+        },
+        {
+          "id": "002",
+          "image": "/image/dog2.jpg"
+        }
       ]
     }
   ]

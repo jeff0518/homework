@@ -25,15 +25,17 @@ function Patient() {
         <p>性別: {patient?.gender}</p>
       </div>
       <ul className={style.patient_image}>
-        <RecordCard />
-        <RecordCard />
-        <RecordCard />
-        <RecordCard />
-        <RecordCard />
-        <RecordCard />
-        <RecordCard />
-        <RecordCard />
-        <RecordCard />
+        {patient &&
+          patient.photos.map((img) => {
+            return (
+              <RecordCard
+                key={img.id}
+                recordNumber={patient.recordNumber}
+                imageId={img.id}
+                imageUrl={img.image}
+              />
+            );
+          })}
       </ul>
       <div className={style.patient_action}>
         <ButtonUI btnStyle="btn__pill">
