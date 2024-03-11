@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { FaRegImage, FaCamera } from "react-icons/fa6";
 
@@ -7,9 +7,15 @@ import ButtonUI from "../UI/ButtonUI";
 import style from "./Patient.module.scss";
 
 import { RecordFakeDataContext } from "../../context/recordFakeData";
+import { MedicalRecordProps } from "../../context/recordFakeData";
 
-function Patient() {
+interface PatientProps {
+  setImageFile: (imageFile: MedicalRecordProps) => void;
+}
+
+function Patient({ setImageFile }: PatientProps) {
   const recordFakeCtx = useContext(RecordFakeDataContext);
+  const inputRef = useRef<HTMLInputElement>(null);
   const { recordNumber } = useParams();
 
   const patient = recordFakeCtx?.medicalRecords.find((item) => {
@@ -17,6 +23,39 @@ function Patient() {
       return item;
     }
   });
+
+  const getImageFileHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0];
+    const lastImageId = Number(patient?.photos[patient.photos.length - 1].id);
+    const newImageId = String(lastImageId + 1).padStart(3, "0");
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.readAsDataURL(selectedFile);
+      reader.onloadend = (e) => {
+        const imageData = e.target ? e.target.result : null;
+        if (imageData && patient) {
+          const newPhoto = {
+            id: newImageId,
+            image: imageData.toString(),
+          };
+          const updated = {
+            ...patient,
+            photos: [...patient.photos, newPhoto],
+          };
+
+          setImageFile(updated);
+        }
+      };
+    }
+  };
+
+  const inputRefHandler = () => {
+    if (!inputRef.current) {
+      return;
+    } else {
+      inputRef.current.click();
+    }
+  };
   return (
     <div className={style.patient_container}>
       <div className={style.patient_info}>
@@ -25,7 +64,7 @@ function Patient() {
         <p>性別: {patient?.gender}</p>
       </div>
       <ul className={style.patient_image}>
-        {patient &&
+        {patient && patient.photos.length > 0 ? (
           patient.photos.map((img) => {
             return (
               <RecordCard
@@ -35,10 +74,21 @@ function Patient() {
                 imageUrl={img.image}
               />
             );
-          })}
+          })
+        ) : (
+          <li className={style.patient_image_text}>還沒有照片！</li>
+        )}
       </ul>
       <div className={style.patient_action}>
-        <ButtonUI btnStyle="btn__pill">
+        <input
+          ref={inputRef}
+          className={style.patient_action_input}
+          type="file"
+          name="file"
+          accept="image/*"
+          onChange={getImageFileHandler}
+        />
+        <ButtonUI btnStyle="btn__pill" onClick={inputRefHandler}>
           <p className={style.patient_action_text}>相簿</p>
           <FaRegImage size={25} />
         </ButtonUI>

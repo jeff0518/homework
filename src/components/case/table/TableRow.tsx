@@ -19,7 +19,6 @@ function TableRow({
   const navigate = useNavigate();
 
   const toPatientHandler = () => {
-    console.log(recordNumber);
     navigate(`/patient/${recordNumber}`);
   };
   return (

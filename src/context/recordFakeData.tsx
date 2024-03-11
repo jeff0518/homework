@@ -28,6 +28,7 @@ interface MedicalRecordContext {
   medicalRecords: MedicalRecordProps[];
   addPatient: (newItem: MedicalRecordProps) => void;
   deledPhoto: ({ recordNumber, imageId }: PhotoProps) => void;
+  changePatient: (newItem: MedicalRecordProps) => void;
 }
 
 const defaultValue = fakeData.medicalRecords;
@@ -41,8 +42,19 @@ export function RecordFakeDataContextProvider({ children }: ProviderProps) {
     useState<MedicalRecordProps[]>(defaultValue);
 
   const addPatient = (newItem: MedicalRecordProps) => {
-    const existing = medicalRecords;
-    existing.push(newItem);
+    const existing = [...medicalRecords, newItem];
+    setMedicalRecords(existing);
+  };
+
+  const changePatient = (newItem: MedicalRecordProps) => {
+    console.log(newItem);
+    const existing = medicalRecords.map((item) => {
+      if (item.recordNumber === newItem.recordNumber) {
+        return newItem;
+      } else {
+        return item;
+      }
+    });
     setMedicalRecords(existing);
   };
 
@@ -66,6 +78,7 @@ export function RecordFakeDataContextProvider({ children }: ProviderProps) {
     medicalRecords,
     addPatient,
     deledPhoto,
+    changePatient,
   };
 
   return (

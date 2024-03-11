@@ -1,17 +1,26 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoChevronBackSharp } from "react-icons/io5";
 import { TbSend } from "react-icons/tb";
 
+import { RecordFakeDataContext } from "../../context/recordFakeData";
+import { MedicalRecordProps } from "../../context/recordFakeData";
 import style from "./NavigationBar.module.scss";
 
-function NavigationBar() {
+interface NavigationProps {
+  imageFile: MedicalRecordProps | undefined;
+}
+
+function NavigationBar({ imageFile }: NavigationProps) {
   const navigate = useNavigate();
+  const recordFakeCtx = useContext(RecordFakeDataContext);
 
   const toBackHandler = () => {
     navigate(-1);
   };
 
   const toSendHandler = () => {
+    imageFile && recordFakeCtx?.changePatient(imageFile);
     navigate("/main");
   };
   return (
