@@ -3,9 +3,8 @@ import { useState } from "react";
 import NavigationBar from "../components/layout/NavigationBar";
 import Footer from "../components/layout/Footer";
 import Patient from "../components/patient/Patient";
+import PreviewModal from "../components/patient/PreviewModal";
 import { MedicalRecordProps } from "../context/recordFakeData";
-
-// import style from './PatentPage.module.scss'
 
 function PatentPage() {
   const [imageFile, setImageFile] = useState<MedicalRecordProps>();
@@ -13,6 +12,7 @@ function PatentPage() {
   return (
     <>
       <NavigationBar imageFile={imageFile} />
+      <PreviewModal />
       <Patient setImageFile={setImageFile} />
       <Footer />
     </>

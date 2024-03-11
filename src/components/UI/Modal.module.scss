@@ -20,6 +20,19 @@
   }
 }
 
+.center-preview {
+  width: 70%;
+  max-width: 40rem;
+  height: 60vh;
+  padding: 1rem;
+  margin: auto;
+  animation: fade-slide-up 0.3s ease-out forwards;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.55);
+  }
+}
+
 .right-top {
   width: 15rem;
   top: 4rem;

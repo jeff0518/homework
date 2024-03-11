@@ -10,6 +10,8 @@ const UserProgressContext = createContext({
   hidePopup: () => {},
   showLogout: () => {},
   hideLogout: () => {},
+  showPreview: () => {},
+  hidePreview: () => {},
 });
 
 export function UserProgressContextProvider({ children }: ProviderProps) {
@@ -19,6 +21,8 @@ export function UserProgressContextProvider({ children }: ProviderProps) {
   const hidePopup = () => setUserProgress("");
   const showLogout = () => setUserProgress("Logout");
   const hideLogout = () => setUserProgress("");
+  const showPreview = () => setUserProgress("Preview");
+  const hidePreview = () => setUserProgress("");
 
   const userProgressCtx = {
     progress: userProgress,
@@ -26,6 +30,8 @@ export function UserProgressContextProvider({ children }: ProviderProps) {
     hidePopup,
     showLogout,
     hideLogout,
+    showPreview,
+    hidePreview,
   };
 
   return (

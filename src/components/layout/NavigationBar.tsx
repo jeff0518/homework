@@ -4,6 +4,7 @@ import { IoChevronBackSharp } from "react-icons/io5";
 import { TbSend } from "react-icons/tb";
 
 import { RecordFakeDataContext } from "../../context/recordFakeData";
+import { PreviewContext } from "../../context/previewContext";
 import { MedicalRecordProps } from "../../context/recordFakeData";
 import style from "./NavigationBar.module.scss";
 
@@ -14,6 +15,7 @@ interface NavigationProps {
 function NavigationBar({ imageFile }: NavigationProps) {
   const navigate = useNavigate();
   const recordFakeCtx = useContext(RecordFakeDataContext);
+  const previewCtx = useContext(PreviewContext);
 
   const toBackHandler = () => {
     navigate(-1);
@@ -21,6 +23,7 @@ function NavigationBar({ imageFile }: NavigationProps) {
 
   const toSendHandler = () => {
     imageFile && recordFakeCtx?.changePatient(imageFile);
+    previewCtx?.deledImage;
     navigate("/main");
   };
   return (

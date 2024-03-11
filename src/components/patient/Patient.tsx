@@ -6,7 +6,9 @@ import RecordCard from "./RecordCard";
 import ButtonUI from "../UI/ButtonUI";
 import style from "./Patient.module.scss";
 
+import UserProgressContext from "../../context/UserProgressContext";
 import { RecordFakeDataContext } from "../../context/recordFakeData";
+import { PreviewContext } from "../../context/previewContext";
 import { MedicalRecordProps } from "../../context/recordFakeData";
 
 interface PatientProps {
@@ -14,7 +16,9 @@ interface PatientProps {
 }
 
 function Patient({ setImageFile }: PatientProps) {
+  const userProgressCtx = useContext(UserProgressContext);
   const recordFakeCtx = useContext(RecordFakeDataContext);
+  const previewCtx = useContext(PreviewContext);
   const inputRef = useRef<HTMLInputElement>(null);
   const { recordNumber } = useParams();
 
@@ -26,7 +30,10 @@ function Patient({ setImageFile }: PatientProps) {
 
   const getImageFileHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
-    const lastImageId = Number(patient?.photos[patient.photos.length - 1].id);
+    let lastImageId = 0;
+    if (patient && patient.photos.length > 0) {
+      lastImageId = Number(patient?.photos[patient.photos.length - 1].id);
+    }
     const newImageId = String(lastImageId + 1).padStart(3, "0");
     if (selectedFile) {
       const reader = new FileReader();
@@ -43,7 +50,9 @@ function Patient({ setImageFile }: PatientProps) {
             photos: [...patient.photos, newPhoto],
           };
 
+          previewCtx?.addImage(imageData.toString());
           setImageFile(updated);
+          userProgressCtx.showPreview();
         }
       };
     }
