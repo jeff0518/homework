@@ -1,4 +1,5 @@
 import { FormEvent, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { TiDeleteOutline } from "react-icons/ti";
 
 import Modal from "../UI/Modal";
@@ -17,6 +18,7 @@ interface AddCaseProps {
 function AddCase({ updatedHandler }: AddCaseProps) {
   const userProgressCtx = useContext(UserProgressContext);
   const recordFakeCtx = useContext(RecordFakeDataContext);
+  const navigate = useNavigate();
 
   const fakeData = recordFakeCtx?.medicalRecords;
   if (!fakeData) return;
@@ -47,6 +49,7 @@ function AddCase({ updatedHandler }: AddCaseProps) {
       updatedHandler();
       recordFakeCtx?.addPatient(response);
       formElement.reset();
+      navigate(`/patient/${recordNumber}`);
       userProgressCtx.hidePopup();
     }
   };

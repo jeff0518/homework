@@ -47,7 +47,6 @@ export function RecordFakeDataContextProvider({ children }: ProviderProps) {
   };
 
   const changePatient = (newItem: MedicalRecordProps) => {
-    console.log(newItem);
     const existing = medicalRecords.map((item) => {
       if (item.recordNumber === newItem.recordNumber) {
         return newItem;

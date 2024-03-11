@@ -3,9 +3,10 @@
 
 .tableContainer {
   width: 90%;
-  max-height: 45vh;
+  max-height: calc(75vh - 9rem);
   margin: 0 auto;
   border: 1px solid color.$gray-10;
+  background-color: color.$secondary-color;
   overflow-y: auto;
 
   .displayCase_container {

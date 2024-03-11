@@ -34,8 +34,8 @@
 }
 
 .center-camera {
-  width: 60vw;
-  height: 80vh;
+  width: 90vw;
+  max-height: 57vh;
   padding: 1rem;
   margin: auto;
   animation: fade-slide-up 0.3s ease-out forwards;
@@ -53,6 +53,20 @@
 
   &::backdrop {
     background-color: rgba(0, 0, 0, 0.55);
+  }
+}
+
+@media screen and (min-width: 431px) {
+  .center-camera {
+    width: 60vw;
+    max-height: 90vh;
+    padding: 1rem;
+    margin: auto;
+    animation: fade-slide-up 0.3s ease-out forwards;
+
+    &::backdrop {
+      background-color: rgba(0, 0, 0, 0.55);
+    }
   }
 }
 

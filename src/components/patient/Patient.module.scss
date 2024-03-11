@@ -5,6 +5,8 @@
   width: 90%;
   height: calc(100vh - 5rem - 6rem);
   margin: 1rem auto;
+  @include center-both;
+  flex-direction: column;
 
   .patient_info {
     width: 100%;

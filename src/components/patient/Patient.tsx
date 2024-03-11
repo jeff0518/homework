@@ -23,8 +23,6 @@ function Patient({ setImageFile }: PatientProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const { recordNumber } = useParams();
 
-  console.log(userProgressCtx.progress);
-
   const patient = recordFakeCtx?.medicalRecords.find((item) => {
     if (item.recordNumber === recordNumber) {
       return item;
