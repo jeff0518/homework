@@ -23,6 +23,8 @@ function Patient({ setImageFile }: PatientProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const { recordNumber } = useParams();
 
+  console.log(userProgressCtx.progress);
+
   const patient = recordFakeCtx?.medicalRecords.find((item) => {
     if (item.recordNumber === recordNumber) {
       return item;
@@ -64,14 +66,6 @@ function Patient({ setImageFile }: PatientProps) {
         const imageData = e.target ? e.target.result : null;
         if (imageData && patient) {
           const updated = getUpdatedFileHandler(imageData.toString());
-          // const newPhoto = {
-          //   id: newImageId,
-          //   image: imageData.toString(),
-          // };
-          // const updated = {
-          //   ...patient,
-          //   photos: [...patient.photos, newPhoto],
-          // };
 
           previewCtx?.addImage(imageData.toString());
           console.log(updated);

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useContext } from "react";
+import { useRef, useContext, useEffect } from "react";
 import { TiDeleteOutline } from "react-icons/ti";
 import { FaCamera } from "react-icons/fa6";
 
@@ -63,11 +63,17 @@ function CameraModal({
 
   const saveHandler = () => {
     setImageFile(updated!);
-    userProgressCtx.hideCamera();
+    closeCameraHandler();
   };
 
   const closeCameraHandler = () => {
     userProgressCtx.hideCamera();
+    const stream = videoRef.current?.srcObject as MediaStream;
+    try {
+      stream.getVideoTracks()[0].stop();
+    } catch (error) {
+      console.error("攝影機停止失敗：", error);
+    }
   };
 
   const closePhoto = () => {
@@ -79,8 +85,10 @@ function CameraModal({
   };
 
   useEffect(() => {
-    getVideo();
-  }, [videoRef]);
+    if (userProgressCtx.progress === "Camera") {
+      getVideo();
+    }
+  }, [userProgressCtx.progress]);
   return (
     <Modal
       modalStyle="center-camera"
