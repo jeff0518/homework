@@ -9,8 +9,14 @@ import DisplayCase from "../components/case/DisplayCase";
 import AddCase from "../components/case/AddCase";
 import Logout from "../components/user/Logout";
 
+const defaultValue = {
+  recordNumber: "",
+  checkupDate: "",
+};
+
 function MainPage() {
   const [updated, setUpdated] = useState(false);
+  const [search, setSearch] = useState(defaultValue);
   const checkLogin = useCheckLogin();
   const navigate = useNavigate();
 
@@ -26,8 +32,8 @@ function MainPage() {
   return (
     <>
       <Header />
-      <SearchCase />
-      <DisplayCase updated={updated} />
+      <SearchCase setSearch={setSearch} />
+      <DisplayCase search={search} updated={updated} />
       <AddCase updatedHandler={updatedHandler} />
       <Logout />
       <Footer />

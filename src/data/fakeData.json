@@ -15,7 +15,7 @@
       "name": "李小明",
       "gender": "男",
       "birthday": "1990-05-15",
-      "checkupDate": "2024/03/10",
+      "checkupDate": "2024-03-10",
       "checkupNumber": "2024031001",
       "photos": [
         {
@@ -33,7 +33,7 @@
       "name": "王小美",
       "gender": "女",
       "birthday": "1990-05-15",
-      "checkupDate": "2024/03/11",
+      "checkupDate": "2024-03-11",
       "checkupNumber": "2024031101",
       "photos": [
         {
