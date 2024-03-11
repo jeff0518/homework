@@ -21,7 +21,20 @@ function DisplayCase({ updated, search }: DisplayCaseProps) {
   useEffect(() => {}, [updated]);
 
   useEffect(() => {
-    if (search.recordNumber) {
+    if (search.recordNumber && search.checkupDate) {
+      const item = recordFakeCtx?.medicalRecords.find((item) => {
+        return item.recordNumber === search.recordNumber;
+      });
+      if (item?.checkupDate === search.checkupDate) {
+        setSearchItems([item]);
+        setIsSearch(true);
+      } else {
+        Alert.fire({
+          icon: "error",
+          title: "沒有這個組合",
+        });
+      }
+    } else if (search.recordNumber) {
       const item = recordFakeCtx?.medicalRecords.find((item) => {
         return item.recordNumber === search.recordNumber;
       });

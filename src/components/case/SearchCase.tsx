@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
 import InputUI from "../UI/InputUI";
@@ -16,21 +16,20 @@ interface SearchProps {
 
 function SearchCase({ setSearch }: SearchProps) {
   const userProgressCtx = useContext(UserProgressContext);
-  const recordNumberRef = useRef<HTMLInputElement>(null!);
-  const checkupDateRef = useRef<HTMLInputElement>(null!);
+  const [recordNumber, setRecordNumber] = useState("");
+  const [checkupDate, setCheckupDate] = useState("");
 
   const showPopupHandler = () => userProgressCtx.showPopup();
 
   const searchHandler = () => {
-    const enterRecord = recordNumberRef.current.value.trim();
-    const enterCheckup = checkupDateRef.current.value.trim();
-
     const updated = {
-      recordNumber: enterRecord,
-      checkupDate: enterCheckup,
+      recordNumber: recordNumber,
+      checkupDate: checkupDate,
     };
 
     setSearch(updated);
+    setCheckupDate("");
+    setRecordNumber("");
   };
 
   return (
@@ -41,8 +40,11 @@ function SearchCase({ setSearch }: SearchProps) {
             label="病例號"
             id="caseNumber"
             type="text"
-            inputRef={recordNumberRef}
             placeholder=""
+            value={recordNumber}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+              setRecordNumber(event.target.value)
+            }
           />
         </div>
         <div className={style.date}>
@@ -50,8 +52,11 @@ function SearchCase({ setSearch }: SearchProps) {
             label="日期"
             id="date"
             type="date"
-            inputRef={checkupDateRef}
             placeholder=""
+            value={checkupDate}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+              setCheckupDate(event.target.value)
+            }
           />
         </div>
       </div>
