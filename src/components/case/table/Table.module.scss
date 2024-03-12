@@ -26,8 +26,16 @@ th:first-child {
     width: 2.5rem;
   }
 
+  &_number {
+    min-width: 6rem;
+  }
+
   &_text {
     min-width: 8rem;
+  }
+
+  &_date {
+    min-width: 8.5rem;
   }
 }
 

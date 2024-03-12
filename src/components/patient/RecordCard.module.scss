@@ -2,7 +2,7 @@
 @import "/src/styles/mixin";
 
 .recordCard_container {
-  height: 12rem;
+  height: 15rem;
   background-color: color.$secondary-color;
   border-radius: 1rem;
   overflow: hidden;
@@ -15,13 +15,13 @@
     justify-content: space-between;
 
     img {
-      height: 10rem;
+      height: 13rem;
       object-fit: cover;
     }
 
     .trash {
       width: 100%;
-      height: 100%;
+      height: 2rem;
       display: flex;
       justify-content: flex-end;
       align-items: center;

@@ -69,10 +69,19 @@ function DisplayCase({ updated, search }: DisplayCaseProps) {
         <thead className={style.sticky}>
           <tr className={style.table_header}>
             <TableHeaderItem name="" additionalStyle="table_cell_photo" />
-            <TableHeaderItem name="病例號" />
+            <TableHeaderItem
+              additionalStyle="table_cell_number"
+              name="病例號"
+            />
             <TableHeaderItem additionalStyle="table_cell_text" name="姓名" />
-            <TableHeaderItem name="檢查日期" />
-            <TableHeaderItem name="檢查單號" />
+            <TableHeaderItem
+              additionalStyle="table_cell_text"
+              name="檢查日期"
+            />
+            <TableHeaderItem
+              additionalStyle="table_cell_number"
+              name="檢查單號"
+            />
           </tr>
         </thead>
         <tbody className={style.table_body}>
