@@ -3,11 +3,11 @@
 Simple Medical Records System 是一款簡單的病例管理系統，目前可以執行建立、查詢、上傳照片的功能。
 
 登入頁面：
-![Imgur](https://imgur.com/CRi6FCW)
+![Imgur](https://imgur.com/CRi6FCW.png)
 查詢頁面：
-![Imgur](https://imgur.com/J8hSbJ8)
+![Imgur](https://imgur.com/J8hSbJ8.png)
 個人頁面：
-![Imgur](https://imgur.com/UU4llUl)
+![Imgur](https://imgur.com/UU4llUl.png)
 
 ## 主要功能
 
