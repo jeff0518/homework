@@ -13,3 +13,10 @@ export const Alert = Swal.mixin({
   width: 600,
   timer: 3000,
 });
+
+export const Dialog = Swal.mixin({
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  width: 600,
+});

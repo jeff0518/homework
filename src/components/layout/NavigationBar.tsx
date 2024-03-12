@@ -6,6 +6,7 @@ import { TbSend } from "react-icons/tb";
 import { RecordFakeDataContext } from "../../context/recordFakeData";
 import { PreviewContext } from "../../context/previewContext";
 import { MedicalRecordProps } from "../../context/recordFakeData";
+import { Dialog } from "../utils/getSweetalert";
 import style from "./NavigationBar.module.scss";
 
 interface NavigationProps {
@@ -18,7 +19,21 @@ function NavigationBar({ imageFile }: NavigationProps) {
   const previewCtx = useContext(PreviewContext);
 
   const toBackHandler = () => {
-    navigate(-1);
+    if (imageFile) {
+      Dialog.fire({
+        title: "您還有照片沒有傳送",
+        icon: "warning",
+        showDenyButton: true,
+        denyButtonText: "我要離開",
+        showCancelButton: false,
+      }).then((result) => {
+        if (result.isDenied) {
+          navigate(-1);
+        }
+      });
+    } else {
+      navigate(-1);
+    }
   };
 
   const toSendHandler = () => {
