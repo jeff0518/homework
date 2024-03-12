@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 
 import ButtonUI from "../UI/ButtonUI";
@@ -8,15 +9,22 @@ import style from "./Header.module.scss";
 
 function Header() {
   const userProgressCtx = useContext(UserProgressContext);
+  const navigate = useNavigate();
 
   const showLogoutHandler = () => userProgressCtx.showLogout();
+
+  const clickTextHandler = () => {
+    navigate("/main");
+  };
   return (
     <div className={style.header_container}>
       <div className={style.title}>
         <div className={style.title_img}>
           <LogoImage logoStyle="circle_header" />
         </div>
-        <p className={style.text}>傷口照護紀錄</p>
+        <p className={style.text} onClick={clickTextHandler}>
+          傷口照護紀錄
+        </p>
       </div>
       <div className={style.user}>
         <ButtonUI btnStyle="btn__user" onClick={showLogoutHandler}>
