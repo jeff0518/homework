@@ -1,6 +1,16 @@
 ## Simple Medical Records System
 
 Simple Medical Records System 是一款簡單的病例管理系統，目前可以執行建立、查詢、上傳照片的功能。
+預設登入帳號密碼：{
+      {
+      "account": "user1",
+      "password": "123456"
+    },
+    {
+      "account": "user2",
+      "password": "654321"
+    }
+}
 
 ### 登入頁面：
 
